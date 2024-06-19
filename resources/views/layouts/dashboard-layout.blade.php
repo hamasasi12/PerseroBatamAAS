@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -12,7 +13,7 @@
   <!-- Favicons -->
   <link href="{{ asset('./assets/img/logo1.png') }}" rel="icon" />
   <link href="{{ asset('./assets2/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
-
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect" />
   <link
@@ -66,6 +67,9 @@
   <script src="{{ asset('./assets2/vendor/simple-datatables/simple-datatables.js') }}"></script>
   <script src="{{ asset('./assets2/vendor/tinymce/tinymce.min.js') }}"></script>
   <script src="{{ asset('./assets2/vendor/php-email-form/validate.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('./assets2/js/main.js') }}"></script>

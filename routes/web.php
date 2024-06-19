@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RequestUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,9 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    Route::get('/permintaan-masuk', function () {
-        return view('pages.permintaan-masuk');
-    })->name('permintaan-masuk');
+    
 
     Route::get('/dikerjakan', function () {
         return view('pages.dikerjakan');
@@ -52,15 +51,21 @@ Route::middleware('auth')->group(function () {
         return view('pages.form-hardware');
     })->name('form-hardware');
 
-   
-
-    
 });
 
+// Route::get('/request-user', function () {
+//     return view('pages.request-user');
+// })->name('request-user');
 
+Route::get('/request-user', [RequestUserController::class, 'req'])->name('request-user');
 
-Route::get('/request-user', function () {
-    return view('pages.request-user');
-})->name('request-user');
+// Route::get('/permintaan-masuk', function () {
+//     return view('pages.permintaan-masuk');
+// })->name('permintaan-masuk');
 
+Route::get('/permintaan-masuk', [RequestUserController::class, 'index'])->name('permintaan-masuk');
+Route::get('/request-user', [RequestUserController::class, 'create'])->name('request-user');
+Route::post('/permintaan-masuk', [RequestUserController::class, 'store'])->name('request-user-simpan');
+
+// Route::resource('request', RequestUserController::class);
 require __DIR__.'/auth.php';

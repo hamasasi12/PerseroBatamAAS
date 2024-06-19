@@ -32,6 +32,9 @@ Route::middleware('guest')->group(function () {
                 ->name('password.store');
 });
 
+Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+                ->name('password.confirm');
+
 Route::middleware('auth')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');

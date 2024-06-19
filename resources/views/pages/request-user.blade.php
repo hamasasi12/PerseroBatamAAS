@@ -77,59 +77,63 @@
                       <div class="col-50">
                         <div class="card">
                           <div class="card-body">
-                            <form action="" method="post">
+
+                            {{-- form --}}
+                            <form action="{{ route('request-user') }}" method="post">
+                              @csrf
                               <div class="row mb-3">
                                 <label for="nomor_barang" class="col-sm-10 col-form-label">NUP</label>
                                 <div class="col-sm-20">
-                                  <input type="number" class="form-control" id="nomor_barang" />
+                                  <input type="text" class="form-control" name="nup" id="nup"/>
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="nama_produk" class="col-sm-10 col-form-label">Nama</label>
                                 <div class="col-sm-20">
-                                  <input type="text" class="form-control" id="nama_produk" />
+                                  <input type="text" class="form-control" id="nama" name="nama" />
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="nomor_serial_produk" class="col-sm-10 col-form-label">Divisi</label>
                                 <div class="col-sm-20">
-                                  <input type="text" class="form-control" id="nomor_serial_produk" />
+                                  <input type="text" class="form-control" id="divisi" name="divisi" />
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="jumlah_produk" class="col-sm-10 col-form-label">No Hp</label>
                                 <div class="col-sm-20">
-                                  <input type="number" class="form-control" id="jumlah_produk" />
+                                  <input type="text" class="form-control" id="no_hp" name="no_hp" />
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="tanggal_masuk_produk" class="col-sm-10 col-form-label">Kategori Request</label>
                                 <div class="col-sm-20">
-                                    <input type="number" class="form-control" id="nomor_barang" />
+                                    <input type="text" class="form-control" id="kategori_req" name="kategori_req" />
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="deskripsi_produk" class="col-sm-10 col-form-label">Jelaskan Lebih Rinci Requestnya</label>
                                 <div class="col-sm-20">
-                                  <textarea class="form-control" id="deskripsi_produk" rows="3"></textarea>
+                                  <textarea class="form-control" id="deskripsi_req" name="deskripsi_req" rows="3"></textarea>
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="deskripsi_produk" class="col-sm-10 col-form-label">Alasan Request</label>
                                 <div class="col-sm-20">
-                                  <textarea class="form-control" id="deskripsi_produk" rows="3"></textarea>
+                                  <textarea class="form-control" id="alasan_req" name="alasan_req" rows="3"></textarea>
                                 </div>
                               </div>
-                              <div class="row mb-3">
+                              {{-- <div class="row mb-3">
                                 <label for="gambar_barang" class="col-sm-10 col-form-label">Upload Dokument Pendukung</label>
                                 <div class="col-sm-20">
                                   <input class="form-control" type="file" id="gambar_barang" />
                                 </div>
-                              </div>
-                            </form
-                            <div class="d-md-flex justify-content-md-end mt-3">
+                              </div> --}}
                               <button type="submit" class="btn" style="background-color: #525ceb; color: white">Send</button>
-                            </div>
+                            </form
+                            {{-- <div class="d-md-flex justify-content-md-end mt-3">
+                              <button type="submit" class="btn" style="background-color: #525ceb; color: white">Send</button>
+                            </div> --}}
                           </div>
                         </div>
                       </div>
