@@ -41,7 +41,7 @@ class RequestUserController extends Controller
 
         RequestUser::create($request->all());
 
-        return redirect()->route('pages.permintaan-masuk')
+        return redirect()->route('request-user')
             ->with('success', 'Request user baru berhasil ditambahkan.');
     }
     /**

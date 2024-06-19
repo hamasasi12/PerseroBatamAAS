@@ -17,8 +17,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    
-
     Route::get('/dikerjakan', function () {
         return view('pages.dikerjakan');
     })->name('dikerjakan');
@@ -31,7 +29,7 @@ Route::middleware('auth')->group(function () {
         return view('pages.pekerjaan_selesai');
     })->name('pekerjaan_selesai');
 
-     Route::get('/hardware', function () {
+    Route::get('/hardware', function () {
         return view('pages.hardware');
     })->name('hardware');
 
@@ -43,29 +41,19 @@ Route::middleware('auth')->group(function () {
         return view('pages.permintaan_perbaikan');
     })->name('permintaan_perbaikan');
 
-     Route::get('/tindaklanjut_perbaikan', function () {
+    Route::get('/tindaklanjut_perbaikan', function () {
         return view('pages.tindaklanjut_perbaikan');
     })->name('tindaklanjut_perbaikan');
 
     Route::get('/form-hardware', function () {
         return view('pages.form-hardware');
     })->name('form-hardware');
-
 });
 
-// Route::get('/request-user', function () {
-//     return view('pages.request-user');
-// })->name('request-user');
+// Menggunakan RequestUserController untuk rute request-user
+    Route::get('/request-user', [RequestUserController::class, 'create'])->name('request-user');
+    Route::post('/request-user', [RequestUserController::class, 'store'])->name('request-user-simpan');
 
-Route::get('/request-user', [RequestUserController::class, 'req'])->name('request-user');
+    Route::get('/permintaan-masuk', [RequestUserController::class, 'index'])->name('permintaan-masuk');
 
-// Route::get('/permintaan-masuk', function () {
-//     return view('pages.permintaan-masuk');
-// })->name('permintaan-masuk');
-
-Route::get('/permintaan-masuk', [RequestUserController::class, 'index'])->name('permintaan-masuk');
-Route::get('/request-user', [RequestUserController::class, 'create'])->name('request-user');
-Route::post('/permintaan-masuk', [RequestUserController::class, 'store'])->name('request-user-simpan');
-
-// Route::resource('request', RequestUserController::class);
 require __DIR__.'/auth.php';
