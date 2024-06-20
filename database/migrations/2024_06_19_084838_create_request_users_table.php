@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('deskripsi_req');
             $table->text('alasan_req');
             $table->string('upload_gambar')->nullable();
+            $table->string('dari_divisi');
+            $table->string('ke_divisi');
             $table->timestamps();
         });
     }

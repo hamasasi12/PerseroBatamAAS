@@ -19,7 +19,7 @@
                             <div class="d-flex justify-content-between mb-3">
                                 <a href="#" type="button" class="btn btn-rounded "><i class="bi bi-funnel"
                                     style="margin-right: 5px"></i></a>
-                                    <a href="/form-permintaan" type="button" class="btn btn-rounded btn-primary">
+                                    <a href="{{ route('form-perbaikan') }}" type="button" class="btn btn-rounded btn-primary">
                                         <i class="bi bi-plus-square" style="margin-right: 5px"></i>Input Permintaan
                                     </a>
                                 </div>

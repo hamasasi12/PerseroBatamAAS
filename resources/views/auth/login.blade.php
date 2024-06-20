@@ -24,7 +24,7 @@
             <!-- login -->
             @if ($errors ->any())
               <div class="alert alert-danger">
-                <ul>
+                <ul style="list-style: none">
                   @foreach ($errors->all() as $item)
                     <li>{{ $item }}</li>
                   @endforeach

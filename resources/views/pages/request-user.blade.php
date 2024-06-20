@@ -96,8 +96,21 @@
                               <div class="row mb-3">
                                 <label for="nomor_serial_produk" class="col-sm-10 col-form-label">Divisi</label>
                                 <div class="col-sm-20">
-                                  <input type="text" class="form-control" id="divisi" name="divisi" />
+                                  {{-- <input type="text" class="form-control" id="divisi" name="divisi" /> --}}
+                                  <select class="form-control" id="divis" name="divisi" required>
+                                    <option value="" disabled selected>--Pilih Salah Satu--</option>
+                                    <option value="Akutansi dan Keuangan">Akutansi dan Keuangan</option>
+                                    <option value="Operasi Batu Ampar">Operasi Batu Ampar</option>
+                                    <option value="Operasi Hang Nadim">Operasi Hang Nadim</option>
+                                    <option value="Pemasaran dan Pengambangan">Pemasaran dan Pengambangan</option>
+                                    <option value="Sekretaris Perusahaan">Sekretaris Perusahaan</option>
+                                    <option value="QHSE">QHSE</option>
+                                    <option value="SPI">SPI</option>
+                                    <option value="SDM dan Umum">SDM dan Umum</option>
+                                    <option value="Terminal Peti Kemas Batu Ampar">Terminal Peti Kemas Batu Ampar</option>
+                                </select>
                                 </div>
+                        
                               </div>
                               <div class="row mb-3">
                                 <label for="jumlah_produk" class="col-sm-10 col-form-label">No Hp</label>
@@ -108,7 +121,22 @@
                               <div class="row mb-3">
                                 <label for="tanggal_masuk_produk" class="col-sm-10 col-form-label">Kategori Request</label>
                                 <div class="col-sm-20">
-                                    <input type="text" class="form-control" id="kategori_req" name="kategori_req" />
+                                    {{-- <input type="text" class="form-control" id="kategori_req" name="kategori_req" /> --}}
+                                  <select class="form-control" id="kategori_req" name="kategori_req" required>
+                                    <option value="" disabled selected>--Pilih Salah Satu--</option>
+                                    <option value="Oracle">Oracle</option>
+                                    <option value="Kredit Note (KN)">Kredit Note (KN)</option>
+                                    <option value="Jaringan Internet">Jaringan Internet</option>
+                                    <option value="Laptop/Komputer/Printer">Laptop/Komputer/Printer</option>
+                                    <option value="Software Computer/Sistem Operasi">Software Computer/Sistem Operasi</option>
+                                    <option value="Aplikasi BTOS/BCTOS">Aplikasi BTOS/BCTOS</option>
+                                    <option value="Aplikasi TMS">Aplikasi TMS</option>
+                                    <option value="Aplikasi BACS">Aplikasi BACS</option>
+                                    <option value="Keperluan Website">Keperluan Website</option>
+                                    <option value="Request DMS">Request DMS</option>
+                                    <option value="Akun Email">Akun Email</option>
+                                    <option value="Akun VPN">Akun VPN</option>
+                                </select>
                                 </div>
                               </div>
                               <div class="row mb-3">

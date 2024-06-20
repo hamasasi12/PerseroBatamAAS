@@ -41,9 +41,17 @@ Route::middleware('auth')->group(function () {
         return view('pages.permintaan_perbaikan');
     })->name('permintaan_perbaikan');
 
+    Route::get('/form-perbaikan', function () {
+        return view('pages.form-perbaikan');
+    })->name('form-perbaikan');
+
     Route::get('/tindaklanjut_perbaikan', function () {
         return view('pages.tindaklanjut_perbaikan');
     })->name('tindaklanjut_perbaikan');
+
+    Route::get('/form-tindaklanjut', function () {
+        return view('pages.form-tindaklanjut');
+    })->name('form-tindaklanjut');
 
     Route::get('/form-hardware', function () {
         return view('pages.form-hardware');
