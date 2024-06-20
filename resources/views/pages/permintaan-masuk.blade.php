@@ -37,15 +37,15 @@
                             @foreach ($request as $index => $item)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $item->no_pengaduan }}<a href="form-inventaris.html" type="button" class="btn btn-rounded btn-danger mb-2">Belum DItangani</a></td>
+                                    <td>{{ $item->created_at }}<a href="form-inventaris.html" type="button" class="btn btn-rounded btn-danger mb-2">Belum DItangani</a></td>
                                     <td>
                                         <button type="button" class="btn btn-rounded btn-primary mb-3" data-toggle="modal" data-target="#detailModal{{ $item->id }}">Detail</button>
                                     </td>
                                     <td class="text-danger">Belum DIpilih</td>
-                                    <td class="text-danger">Pending</td>
-                                    <td>{{ $item->user }}</td>
-                                    <td><a href="form-inventaris.html" type="button" class="btn btn-rounded btn-danger mb-3"><i class="bi bi-trash" style="margin-right: 5px"></i>dikerjakan</a></td>
-                                    <td>{{ $item->file }}</td>
+                                    <td class="text-danger">{{ $item->nama }}</td>
+                                    {{-- <td>{{ $item->user }}</td> --}}
+                                    <td><a href="form-inventaris.html" type="button" class="btn btn-rounded btn-danger mb-3"><i class="bi bi-trash" style="margin-right: 5px"></i>Kerjakan!</a></td>
+                                    <td>{{ $item->nama }}</td>
                                     <td><a href="form-inventaris.html" type="button" class="btn btn-rounded btn-primary mb-3">Keuangan</a></td>
                                     <td><a href="form-inventaris.html" type="button" class="btn btn-rounded btn-primary mb-3">Pemasaran</a></td>
                                 </tr>

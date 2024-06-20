@@ -12,7 +12,7 @@ class RequestUserController extends Controller
      */
     public function index()
     {
-        $request = RequestUser::all();
+        $request = RequestUser::latest()->get();
         return view('pages.permintaan-masuk', compact('request'));
     }
 
