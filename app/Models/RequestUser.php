@@ -19,5 +19,6 @@ class RequestUser extends Model
         'kategori_req',
         'deskripsi_req',
         'alasan_req',
+        'upload_gambar'
     ];
 }

@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Hamas Akif Sanie',
-            'email' => 'pblgakselesai@gmail.com',
+            'email' => 'adminpbl@gmail.com',
             'password' => Hash::make('viafeni123'),
         ]);
     }

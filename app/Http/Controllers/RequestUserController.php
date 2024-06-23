@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\RequestUser;
 
+use App\Models\RequestUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RequestUserController extends Controller
@@ -13,6 +14,7 @@ class RequestUserController extends Controller
     public function index()
     {
         $request = RequestUser::latest()->get();
+        // $users = User::all();
         return view('pages.permintaan-masuk', compact('request'));
     }
 
@@ -37,13 +39,24 @@ class RequestUserController extends Controller
             'kategori_req' => 'required',
             'deskripsi_req' => 'required',
             'alasan_req' => 'required',
+            'upload_gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        RequestUser::create($request->all());
+        $input = $request->all();
+
+        if ($image = $request->file('upload_gambar')) {
+            $destinationPath = 'uploads/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['upload_gambar'] = "$destinationPath$profileImage";
+        }
+
+        RequestUser::create($input);
 
         return redirect()->route('request-user')
             ->with('success', 'Request user baru berhasil ditambahkan.');
     }
+
     /**
      * Display the specified resource.
      */
@@ -80,4 +93,5 @@ class RequestUserController extends Controller
     {
         return view('pages.request-user');
     }
+    
 }

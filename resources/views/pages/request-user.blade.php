@@ -79,7 +79,7 @@
                           <div class="card-body">
 
                             {{-- form --}}
-                            <form action="{{ route('request-user') }}" method="post">
+                            <form action="{{ route('request-user') }}" method="post" enctype="multipart/form-data">
                               @csrf
                               <div class="row mb-3">
                                 <label for="nomor_barang" class="col-sm-10 col-form-label">NUP</label>
@@ -151,12 +151,12 @@
                                   <textarea class="form-control" id="alasan_req" name="alasan_req" rows="3"></textarea>
                                 </div>
                               </div>
-                              {{-- <div class="row mb-3">
+                              <div class="row mb-3">
                                 <label for="gambar_barang" class="col-sm-10 col-form-label">Upload Dokument Pendukung</label>
                                 <div class="col-sm-20">
-                                  <input class="form-control" type="file" id="gambar_barang" />
+                                  <input class="form-control" type="file" id="upload_gambar" name="upload_gambar" accept=".jpg, .jpeg, .png" />
                                 </div>
-                              </div> --}}
+                              </div>
                               <button type="submit" class="btn" style="background-color: #525ceb; color: white">Send</button>
                             </form
                             {{-- <div class="d-md-flex justify-content-md-end mt-3">

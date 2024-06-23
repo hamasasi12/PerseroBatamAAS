@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestUserController;
 use Illuminate\Support\Facades\Route;
@@ -63,5 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/request-user', [RequestUserController::class, 'store'])->name('request-user-simpan');
 
     Route::get('/permintaan-masuk', [RequestUserController::class, 'index'])->name('permintaan-masuk');
+    Route::resource('TambahDataHardware', HardwareController::class);
+    // Route::post('/assign-technician/{request}', [RequestUserController::class, 'assignTechnician'])->name('assign-technician');
 
 require __DIR__.'/auth.php';

@@ -51,7 +51,7 @@
               </a>
               <ul id="inventory-nav" class="nav-content collapse" data-bs-parent="#tables-nav">
                 <li>
-                  <a href="{{ route('hardware') }}">
+                  <a href="{{ route('TambahDataHardware.index') }}">
                     <i class="bi bi-cpu"></i><span>Tambah Data Aset (Hardware)</span>
                   </a>
                 </li>

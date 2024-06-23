@@ -20,9 +20,10 @@ return new class extends Migration
             $table->string('kategori_req');
             $table->text('deskripsi_req');
             $table->text('alasan_req');
+            // $table->foreignId('user_id');
             $table->string('upload_gambar')->nullable();
-            $table->string('dari_divisi');
-            $table->string('ke_divisi');
+            // $table->string('dari_divisi');
+            // $table->string('ke_divisi');
             $table->timestamps();
         });
     }

@@ -11,9 +11,9 @@
             <div class="container" data-aos="zoom-out" data-aos-delay="100">
                 <h1>Selamat Datang di Aplikasi Manajemen Layanan Teknis Dan IT Persero Batam</h1>
                 <div class="d-flex mt-4">
-                    @guest
+                        @guest  
                         <a href="{{ route('login') }}" class="btn-get-started scrollto me-2" style="background-color: #061097;">Login User</a>
-                    @endguest
+                        @endguest
                     <a href="{{ route('request-user') }}" class="btn-get-started scrollto" style="background-color: #eaee16; color: black;">Request User</a>
                 </div>
             </div>
