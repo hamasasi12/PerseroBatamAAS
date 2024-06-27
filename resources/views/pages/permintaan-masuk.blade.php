@@ -29,7 +29,7 @@
                                         <th>Teknisi</th>
                                         <th>User</th>
                                         <th>File</th>
-                                        <th>Ke Divisi</th>
+                                        {{-- <th>Ke Divisi</th> --}}
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -37,7 +37,10 @@
                                 @foreach ($request as $index => $item)              
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $item->created_at }}<br/><a href="#" type="button" class="btn btn-rounded btn-danger mb-2">Belum Ditangani <br>Selama :{{ $item->created_at ? $item->created_at->diffForHumans() : 'Unknown' }}  </a></td>
+                                    <td>
+                                        {{ $item->created_at_formatted }}<br/><a href="#" type="button" class="btn btn-rounded btn-danger mb-2">Belum Ditangani <br>Selama :{{ $item->created_at ? $item->created_at->diffForHumans() : 'Unknown' }}</a>
+                                        <p> <strong>Created : </strong>{{ $item->created_at }}</p>
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-rounded btn-primary mb-3" data-toggle="modal" data-target="#detailModal{{ $item->id }}">Detail</button>
                                     </td>
@@ -55,7 +58,7 @@
                                             <i class="bi bi-image-fill"></i>
                                         </button>
                                     </td>
-                                    <td><a href="form-inventaris.html" type="button" class="btn btn-rounded btn-primary mb-3">Pemasaran</a></td>
+                                    {{-- <td><a href="form-inventaris.html" type="button" class="btn btn-rounded btn-primary mb-3">Pemasaran</a></td> --}}
                                     <td><a href="form-inventaris.html" type="button" class="btn btn-success mb-3"><i class="bi bi-arrow-right" style="margin-right: 5px"></i>Kerjakan!</a></td>
                                 </tr>
 
@@ -102,6 +105,13 @@
                                                     <img src="{{ asset($item->upload_gambar) }}" alt="Uploaded Image" class="img-fluid">
                                                 @else
                                                     <p>No image available</p>
+                                                @endif
+
+                                                @if ($item->upload_file)
+                                                <div>
+                                                    <label>Dokumen PDF:</label>
+                                                    <a href="{{ asset($item->upload_file) }}" target="_blank">Lihat Dokumen PDF</a>
+                                                </div>
                                                 @endif
                                             </div>
                                             <div class="modal-footer">

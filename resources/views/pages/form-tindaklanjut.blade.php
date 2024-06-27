@@ -4,7 +4,7 @@
 
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Input Permintaan Perbaikan</h1>
+            <h1>Input Tindak Lanjut</h1>
         </div>
         <!-- End Page Title -->
         <section class="section">
@@ -12,39 +12,37 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Permintaan Perbaikan</h5>
-
-                            <form action="{{ route('Perbaikan.store') }}" method="post">
+                            <h5 class="card-title">Tindak Lanjut</h5>
+                            <form action="{{ route('Tindaklanjut.store') }}" method="post">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="nomor_barang" class="col-sm-2 col-form-label">No Permintaan</label>
+                                    <label for="nomor_barang" class="col-sm-2 col-form-label">Kode Asset</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="nomor_permintaan" name="no_permintaan" />
+                                        <input type="number" class="form-control" id="kode_asset" name="kode_asset"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="deskripsi_produk" class="col-sm-2 col-form-label">Deskripsi Permintaan</label>
+                                    <label for="nomor_barang" class="col-sm-2 col-form-label">Keterangan</label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" id="deskripsi_permintaan" name="deskripsi_permintaan" rows="3"></textarea>
+                                        <input type="number" class="form-control" id="keterangan" name="keterangan"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="nomor_serial_produk" class="col-sm-2 col-form-label">Departemen</label>
+                                    <label for="nomor_barang" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="departemen" name="departemen" />
+                                        <input type="number" class="form-control" id="status" name="status"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="jumlah_produk" class="col-sm-2 col-form-label">Pic Permintaan</label>
+                                    <label for="nomor_barang" class="col-sm-2 col-form-label">PIC</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="pic_permintaan" name="pic_permintaan" />
+                                        <input type="number" class="form-control" id="pic" name="pic"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="tanggal_masuk_produk" class="col-sm-2 col-form-label">Tanggal
-                                        Permintaan</label>
+                                    <label for="nomor_barang" class="col-sm-2 col-form-label">Tanggal Permintaan</label>
                                     <div class="col-sm-10">
-                                        <input type="date" class="form-control" id="tanggal_permintaan" name="tanggal_permintaan" />
+                                        <input type="number" class="form-control" id="tanggal" name="tanggal"/>
                                     </div>
                                 </div>
                                 <div class="d-md-flex justify-content-md-end mt-3">

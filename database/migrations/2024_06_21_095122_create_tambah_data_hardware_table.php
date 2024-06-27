@@ -13,21 +13,21 @@ return new class extends Migration
     {
         Schema::create('tambah_data_hardware', function (Blueprint $table) {
             $table->id();
-            $table->string('no_inventaris');
-            $table->string('tahun');
-            $table->string('jenis');
-            $table->string('merek');
-            $table->string('proc');
-            $table->string('ram');
-            $table->string('hdd');
-            $table->string('ip');
-            $table->string('user');
-            $table->string('unit');
-            $table->string('lokasi');
-            $table->string('status');
-            $table->string('windows');
-            $table->string('office');
-            $table->string('garansi');
+            $table->string('no_inventaris')->nullable();
+            $table->string('tahun')->nullable();
+            $table->string('jenis')->nullable();
+            $table->string('merek')->nullable();
+            $table->string('proc')->nullable();
+            $table->string('ram')->nullable();
+            $table->string('hdd')->nullable();
+            $table->string('ip')->nullable();
+            $table->string('user')->nullable();
+            $table->string('unit')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->string('status')->nullable();
+            $table->string('windows')->nullable();
+            $table->string('office')->nullable();
+            $table->string('garansi')->nullable();
             $table->timestamps();
         });
     }

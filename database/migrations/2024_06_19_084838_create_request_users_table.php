@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('request_users', function (Blueprint $table) {
             $table->id();
-            $table->string('nup');
-            $table->string('nama');
-            $table->string('divisi');
-            $table->string('no_hp');
-            $table->string('kategori_req');
-            $table->text('deskripsi_req');
-            $table->text('alasan_req');
+            $table->string('nup')->nullable();
+            $table->string('nama')->nullable();
+            $table->string('divisi')->nullable();
+            $table->string('no_hp')->nullable();
+            $table->string('kategori_req')->nullable();
+            $table->text('deskripsi_req')->nullable();
+            $table->text('alasan_req')->nullable();
             // $table->foreignId('user_id');
             $table->string('upload_gambar')->nullable();
+            $table->string('upload_file')->nullable();
             // $table->string('dari_divisi');
             // $table->string('ke_divisi');
             $table->timestamps();

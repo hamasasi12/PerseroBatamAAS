@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="{{ asset('./assets1/vendor/css/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('./assets1/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('./assets1/css/demo.css') }}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('./assets1/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
@@ -97,7 +99,7 @@
                                 <label for="nomor_serial_produk" class="col-sm-10 col-form-label">Divisi</label>
                                 <div class="col-sm-20">
                                   {{-- <input type="text" class="form-control" id="divisi" name="divisi" /> --}}
-                                  <select class="form-control" id="divis" name="divisi" required>
+                                  <select class="form-control" id="divisi" name="divisi" >
                                     <option value="" disabled selected>--Pilih Salah Satu--</option>
                                     <option value="Akutansi dan Keuangan">Akutansi dan Keuangan</option>
                                     <option value="Operasi Batu Ampar">Operasi Batu Ampar</option>
@@ -122,7 +124,7 @@
                                 <label for="tanggal_masuk_produk" class="col-sm-10 col-form-label">Kategori Request</label>
                                 <div class="col-sm-20">
                                     {{-- <input type="text" class="form-control" id="kategori_req" name="kategori_req" /> --}}
-                                  <select class="form-control" id="kategori_req" name="kategori_req" required>
+                                  <select class="form-control" id="kategori_req" name="kategori_req" >
                                     <option value="" disabled selected>--Pilih Salah Satu--</option>
                                     <option value="Oracle">Oracle</option>
                                     <option value="Kredit Note (KN)">Kredit Note (KN)</option>
@@ -152,11 +154,15 @@
                                 </div>
                               </div>
                               <div class="row mb-3">
-                                <label for="gambar_barang" class="col-sm-10 col-form-label">Upload Dokument Pendukung</label>
+                                <label for="gambar_barang" class="col-sm-10 col-form-label">Upload Gambar</label>
                                 <div class="col-sm-20">
                                   <input class="form-control" type="file" id="upload_gambar" name="upload_gambar" accept=".jpg, .jpeg, .png" />
                                 </div>
                               </div>
+                              <div class="form-group">
+                                <label for="upload_file">Upload File (PDF):</label>
+                                <input type="file" class="form-control" name="upload_file" id="upload_file" accept=".pdf">
+                            </div>
                               <button type="submit" class="btn" style="background-color: #525ceb; color: white">Send</button>
                             </form
                             {{-- <div class="d-md-flex justify-content-md-end mt-3">
@@ -185,6 +191,8 @@
     <script src="{{ asset ('./assets1/vendor/libs/jquery/jquery.js') }}"></script>
     <script src="{{ asset('./assets1/vendor/js/bootstrap.js') }}"></script>
     <script src="{{ asset('./assets1/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script src="{{ asset('./assets1/vendor/js/menu.js') }}"></script>
     <!-- endbuild -->

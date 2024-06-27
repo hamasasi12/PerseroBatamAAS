@@ -1,13 +1,17 @@
 <?php
 
 use App\Http\Controllers\HardwareController;
+use App\Http\Controllers\PerbaikanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestUserController;
+use App\Http\Controllers\SoftwareController;
+use App\Http\Controllers\TindakLanjutController;
+use App\Models\TambahDataHardware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -57,6 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/form-hardware', function () {
         return view('pages.form-hardware');
     })->name('form-hardware');
+
 });
 
 // Menggunakan RequestUserController untuk rute request-user
@@ -65,6 +70,29 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/permintaan-masuk', [RequestUserController::class, 'index'])->name('permintaan-masuk');
     Route::resource('TambahDataHardware', HardwareController::class);
+
+    Route::get('edit-data-hardware/{id}/edit', [HardwareController::class, 'edit'])->name('edit-data-hardware');
+    Route::post('update-data-hardware/{id}',[HardwareController::class, 'update'])->name('update-data-hardware');
+    Route::get('delete-data-hardware/{id}',[HardwareController::class, 'destroy'])->name('delete-data-hardware');
+    Route::post('simpan-data-hardware',[HardwareController::class, 'store'])->name('simpan-data-hardware');
     // Route::post('/assign-technician/{request}', [RequestUserController::class, 'assignTechnician'])->name('assign-technician');
+
+    // Route::resource('TambahDataHardware', HardwareController::class);
+    //SOFTWARE
+    Route::resource('TambahDataSoftware', SoftwareController::class);
+
+    Route::get('edit-data-software/{id}/edit', [SoftwareController::class, 'edit'])->name('edit-data-software');
+    Route::post('update-data-software/{id}',[SoftwareController::class, 'update'])->name('update-data-software');
+    Route::get('delete-data-software/{id}',[SoftwareController::class, 'destroy'])->name('delete-data-software');
+    Route::post('simpan-data-software',[SoftwareController::class, 'store'])->name('simpan-data-software');
+
+    //PERBAIKAN
+    Route::resource('Perbaikan', PerbaikanController::class);
+    
+    Route::get('edit-data-perbaikan/{id}/edit', [PerbaikanController::class, 'edit'])->name('edit-data-perbaikan');
+    Route::post('update-data-perbaikan/{id}',[PerbaikanController::class, 'update'])->name('update-data-perbaikan');
+    Route::get('delete-data-perbaikan/{id}',[PerbaikanController::class, 'destroy'])->name('delete-data-perbaikan');
+
+    Route::resource('Tindaklanjut', TindakLanjutController::class);
 
 require __DIR__.'/auth.php';

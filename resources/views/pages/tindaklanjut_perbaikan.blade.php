@@ -8,7 +8,7 @@
             <h1> Data Tindaklanjut Perbaikan</h1>
         </div>
         <!-- End Page Title -->
-        
+
         <!-- main -->
         <section class="section">
             <div class="row">
@@ -19,12 +19,10 @@
                             <div class="d-flex justify-content-between mb-3">
                                 <a href="#" type="button" class="btn btn-rounded "><i class="bi bi-funnel"
                                     style="margin-right: 5px"></i></a>
-                                    <a href="/formperbaikan" type="button" class="btn btn-rounded btn-primary">
+                                    <a href="{{ route('Tindaklanjut.create') }}" type="button" class="btn btn-rounded btn-primary">
                                         <i class="bi bi-plus-square" style="margin-right: 5px"></i>Tambah
                                     </a>
                                 </div>
-                                
-                                
                                 <!-- Table with stripped rows -->
                                 <table class="table datatable">
                                     <thead>
@@ -39,68 +37,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($tindaklanjut as $index => $item )
                                         <tr>
-                                            <td>1</td>
-                                            <td>017/CPU/V/2024</td>
-                                            <td>PC Hancur</td>
-                                            <td class="text-danger">Open</td>
-                                            <td>Admin IT</td>
-                                            <td>29/02/2024</td>
-                                            <td><i class="bi bi-eye"></i>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $item->kode_asset }}</td>
+                                            <td>{{ $item->keterangan }}</td>
+                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->pic }}</td>
+                                            <td>{{ $item->tanggal }}</td>
+                                            <td>
+                                                <i class="bi bi-eye"></i>
                                                 <i class="bi bi-pencil-square"></i>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>017/CPU/V/2028</td>
-                                            <td>Monitor Mati</td>
-                                            <td class="text-primary">Close</td>
-                                            <td>Admin IT</td>
-                                            <td>29/02/2028</td>
-                                            <td><i class="bi bi-eye"></i>
-                                                <i class="bi bi-pencil-square"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!-- End Table with stripped rows -->
@@ -110,5 +60,4 @@
                 </div>
             </section>
         </main>
-        
         @endsection

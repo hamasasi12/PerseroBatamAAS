@@ -39,21 +39,29 @@ class RequestUserController extends Controller
             'kategori_req' => 'required',
             'deskripsi_req' => 'required',
             'alasan_req' => 'required',
-            'upload_gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'upload_gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'upload_file' => 'nullable|mimes:pdf|max:10000',
         ]);
 
         $input = $request->all();
 
         if ($image = $request->file('upload_gambar')) {
-            $destinationPath = 'uploads/';
+            $destinationPath = 'uploads/images/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['upload_gambar'] = "$destinationPath$profileImage";
         }
 
+        if ($file = $request->file('upload_file')) {
+            $destinationPath = 'uploads/files/';
+            $profileFile = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $profileFile);
+            $input['upload_file'] = "$destinationPath$profileFile";
+        }
+
         RequestUser::create($input);
 
-        return redirect()->route('request-user')
+        return redirect()->route('welcome')
             ->with('success', 'Request user baru berhasil ditambahkan.');
     }
 
@@ -95,3 +103,4 @@ class RequestUserController extends Controller
     }
     
 }
+

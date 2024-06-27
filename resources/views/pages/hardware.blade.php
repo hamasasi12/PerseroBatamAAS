@@ -136,8 +136,9 @@
                                             <td>{{ $item->office }}</td>
                                             <td>{{ $item->garansi }}</td>
                                             <td>
-                                                <i class="bi bi-eye"></i>
-                                                <i class="bi bi-pencil-square"></i>
+                                                <a href="{{ route('edit-data-hardware',$item->id) }}"><i class="bi bi-pencil-square"></i></a>
+                                                {{-- <i class="bi bi-pencil-square"></i> --}}
+                                                <a href="{{ route('delete-data-hardware', $item->id) }}">delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -1,6 +1,18 @@
 <x-login.welcome-section /> 
 
 <body>
+    @if ($message = Session::get('message'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    title: 'Berhasil',
+                    text: '{{ Session::get('message') }}',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>
+    @endif
     
     <x-login.welcome-header-section />
 
@@ -14,6 +26,10 @@
                         @guest  
                         <a href="{{ route('login') }}" class="btn-get-started scrollto me-2" style="background-color: #061097;">Login User</a>
                         @endguest
+
+                        @auth
+                        <a href="{{ route('login') }}" class="btn-get-started scrollto me-2" style="background-color: #061097;">Masuk Kembali</a>
+                        @endauth
                     <a href="{{ route('request-user') }}" class="btn-get-started scrollto" style="background-color: #eaee16; color: black;">Request User</a>
                 </div>
             </div>
@@ -38,6 +54,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-datatables/3.3.1/simple-datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.5.1/tinymce.min.js"></script>
     <script src="{{ asset('./assets2/vendor/php-email-form/validate.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>

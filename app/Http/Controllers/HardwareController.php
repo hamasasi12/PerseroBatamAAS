@@ -64,9 +64,8 @@ class HardwareController extends Controller
     public function edit(string $id)
     {
         $hardware = TambahDataHardware::findOrFail($id);
-        return view('pages.form-hardware-perbaikan', compact('hardware'));
+        return view('pages.edit-data-hardware', compact('hardware'));
     }
-
     /**
      * Update the specified resource in storage.
      */

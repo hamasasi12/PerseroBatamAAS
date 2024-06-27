@@ -56,7 +56,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="{{ route('software') }}">
+                  <a href="{{ route('TambahDataSoftware.index') }}">
                     <i class="bi bi-file-earmark-code"></i><span>Tambah Data Aset (Software)</span>
                   </a>
                 </li>
@@ -71,12 +71,12 @@
               </a>
               <ul id="maintenance-nav" class="nav-content collapse" data-bs-parent="#tables-nav">
                 <li>
-                  <a href="{{ route('permintaan_perbaikan') }}">
+                  <a href="{{ route('Perbaikan.index') }}">
                     <i class="bi bi-bug"></i><span>Permintaan Perbaikan</span>
                   </a>
                 </li>
                 <li>
-                  <a href="{{ route('tindaklanjut_perbaikan') }}">
+                  <a href="{{ route('Tindaklanjut.index') }}">
                     <i class="bi bi-arrow-repeat"></i><span>Tindaklanjut Perbaikan</span>
                   </a>
                 </li>
