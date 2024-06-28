@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dikerjakan;
 use App\Models\RequestUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Request as HttpRequest;
 
 class RequestUserController extends Controller
 {
@@ -13,9 +15,10 @@ class RequestUserController extends Controller
      */
     public function index()
     {
-        $request = RequestUser::latest()->get();
+        $requests = RequestUser::latest()->get();
+        $technicians = User::all();
         // $users = User::all();
-        return view('pages.permintaan-masuk', compact('request'));
+        return view('pages.permintaan-masuk', compact('requests', 'technicians'));
     }
 
     /**
@@ -41,6 +44,7 @@ class RequestUserController extends Controller
             'alasan_req' => 'required',
             'upload_gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'upload_file' => 'nullable|mimes:pdf|max:10000',
+            'teknisi' => 'nullable'
         ]);
 
         $input = $request->all();
@@ -70,7 +74,8 @@ class RequestUserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $request = RequestUser::findOrFail($id); // Misalnya, ambil data request berdasarkan ID
+        return view('pages.dikerjakan', compact('request'));
     }
 
     /**
@@ -100,6 +105,48 @@ class RequestUserController extends Controller
     public function req()
     {
         return view('pages.request-user');
+    }
+
+    public function assignTechnician(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'teknisi' => 'required|exists:users,id',
+        ]);
+
+        // Cari permintaan berdasarkan ID
+        $item = RequestUser::findOrFail($id);
+        $item->teknisi = $request->teknisi;
+        $item->save();
+
+        return redirect()->back()->with('success', 'Teknisi Berhasil Ditambahkan');
+    }
+
+    public function moveToDikerjakan($id)
+    {
+        // Mengambil data permintaan berdasarkan ID
+        $request = RequestUser::find($id);
+        
+        if ($request) {
+            // Membuat entri baru di tabel dikerjakan
+            $dikerjakan = new Dikerjakan();
+            $dikerjakan->nup = $request->nup;
+            $dikerjakan->nama = $request->nama;
+            $dikerjakan->divisi = $request->divisi;
+            $dikerjakan->no_hp = $request->no_hp;
+            $dikerjakan->kategori_req = $request->kategori_req;
+            $dikerjakan->deskripsi_req = $request->deskripsi_req;
+            $dikerjakan->alasan_req = $request->alasan_req;
+            $dikerjakan->upload_gambar = $request->upload_gambar;
+            $dikerjakan->upload_file = $request->upload_file;
+            $dikerjakan->teknisi = $request->teknisi;
+            $dikerjakan->save();
+
+            // Menghapus data dari tabel permintaan
+            $request->delete();
+
+            return redirect()->back()->with('success', 'Data berhasil dipindahkan ke tabel dikerjakan.');
+        }
+        return redirect()->back()->with('error', 'Data tidak ditemukan.');
     }
     
 }

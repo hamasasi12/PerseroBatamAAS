@@ -1,15 +1,16 @@
 <?php
 
-// app/Models/RequestUser.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class RequestUser extends Model
+class selesai extends Model
 {
-    protected $table = "request_users";
+    use HasFactory;
+
+    protected $table = "selesai";
 
     protected $primaryKey = "id";
     protected $fillable = [
@@ -24,18 +25,15 @@ class RequestUser extends Model
         'upload_file',
         'teknisi'
     ];
+
+    public function technician()
+    {
+        return $this->belongsTo(User::class, 'teknisi');
+    }
+
     public function getCreatedAtFormattedAttribute()
     {
         // return Carbon::parse($this->attributes['created_at'])->format('d-m-Y H:i:s');
         return Carbon::parse($this->attributes['created_at'])->format('YmdHis');
-    }
-    public function getCreatedAtOriginalAttribute()
-    {
-        return $this->attributes['created_at']; 
-    }
-    
-    public function technician()
-    {
-        return $this->belongsTo(User::class, 'teknisi');
     }
 }

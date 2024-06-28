@@ -8,7 +8,18 @@
         <h1>Data Permintaan Masuk</h1>
     </div>
     <!-- End Page Title -->
-
+    @if ($message = Session::get('success'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    title: 'Berhasil',
+                    text: '{{ Session::get('success') }}',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>
+    @endif
     <!-- main -->
     <section class="section">
         <div class="row">
@@ -34,7 +45,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($request as $index => $item)              
+                                @foreach ($requests as $index => $item)              
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>
@@ -44,7 +55,22 @@
                                     <td>
                                         <button type="button" class="btn btn-rounded btn-primary mb-3" data-toggle="modal" data-target="#detailModal{{ $item->id }}">Detail</button>
                                     </td>
-                                    <td class="text-danger">Belum Dipilih</td>
+                                    <td>
+                                        @if ($item->technician)
+                                            {{ $item->technician->name }}
+                                        @else
+                                            <form action="{{ route('assign.technician', $item->id) }}" method="post">
+                                                @csrf
+                                                <select name="teknisi" class="form-control">
+                                                    <option value="" disabled selected>--Pilih Teknisi--</option>
+                                                    @foreach ($technicians as $technician)
+                                                        <option value="{{ $technician->id }}">{{ $technician->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <button type="submit" class="btn btn-rounded btn-success mt-2">Assign</button>
+                                            </form>
+                                        @endif
+                                    </td>
                                     <td>
                                         <div style="line-height: 0.5">
                                             <p class="font-weight-bold"><i class="bi bi-person-fill"></i> {{ $item->nama }}</p>
@@ -59,7 +85,15 @@
                                         </button>
                                     </td>
                                     {{-- <td><a href="form-inventaris.html" type="button" class="btn btn-rounded btn-primary mb-3">Pemasaran</a></td> --}}
-                                    <td><a href="form-inventaris.html" type="button" class="btn btn-success mb-3"><i class="bi bi-arrow-right" style="margin-right: 5px"></i>Kerjakan!</a></td>
+                                    <td>
+                                        <form action="{{ route('requests.dikerjakan', $item->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-success mb-3">
+                                                <i class="bi bi-arrow-right" style="margin-right: 5px"></i>Kerjakan!
+                                            </button>
+                                        </form>
+                                    </td>
+                                    
                                 </tr>
 
                                 <!-- Detail Modal -->
@@ -73,13 +107,13 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>NUP              : {{ $item->nup }}</p>
-                                                <p>Nama             : {{ $item->nama }}</p>
-                                                <p>Divisi           : {{ $item->divisi }}</p>
-                                                <p>No HP            : {{ $item->no_hp }}</p>
-                                                <p>Kategori Request : {{ $item->kategori_req }}</p>
-                                                <p>Deskripsi        : {{ $item->deskripsi_req }}</p>
-                                                <p>Alasan           : {{ $item->alasan_req }}</p>
+                                                <p><span class="font-weight-bold text-primary">NUP</span>              : {{ $item->nup }}</p>
+                                                <p><span class="font-weight-bold">Nama</span>: {{ $item->nama }}</p>
+                                                <p><span class="font-weight-bold">Divisi</span>           : {{ $item->divisi }}</p>
+                                                <p><span class="font-weight-bold">No HP</span>            : {{ $item->no_hp }}</p>
+                                                <p><span class="font-weight-bold">Kategori Request</span> : {{ $item->kategori_req }}</p>
+                                                <p><span class="font-weight-bold">Deskripsi</span>        : {{ $item->deskripsi_req }}</p>
+                                                <p><span class="font-weight-bold">Alasan</span>           : {{ $item->alasan_req }}</p>
                                                 <!-- Tambahkan detail lain sesuai kebutuhan -->
                                             </div>
                                             <div class="modal-footer">

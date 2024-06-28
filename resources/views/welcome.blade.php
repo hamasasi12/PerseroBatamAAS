@@ -1,12 +1,12 @@
 <x-login.welcome-section /> 
 
 <body>
-    @if ($message = Session::get('message'))
+    @if ($message = Session::get('success'))
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 Swal.fire({
                     title: 'Berhasil',
-                    text: '{{ Session::get('message') }}',
+                    text: '{{ Session::get('success') }}',
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
@@ -240,3 +240,6 @@
 {{-- </html> --}}
 
 
+{{-- <a href="#" type="button" class="btn btn-rounded btn-danger mb-2">Belum Ditangani <br>Selama :{{ $item->created_at ? $item->created_at->diffForHumans() : 'Unknown' }}</a> --}}
+
+{{-- <i class="btn btn-rounded btn-danger mb-2">Belum Ditangani <br> Selama : {{ $item->created_at ? $item->created_at->diffForHumans() : 'Unknown' }}</i> --}}

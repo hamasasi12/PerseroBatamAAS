@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\DataDikerjakanController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\PerbaikanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestUserController;
+use App\Http\Controllers\SelesaiController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\TindakLanjutController;
 use App\Models\TambahDataHardware;
@@ -95,4 +97,15 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('Tindaklanjut', TindakLanjutController::class);
 
+    Route::post('/assign-technician/{id}', [RequestUserController::class, 'assignTechnician'])->name('assign.technician');
+    Route::get('/dikerjakan/{id}', [RequestUserController::class, 'show'])->name('request_dikerjakan');
+    Route::get('/data-dikerjakan', [DataDikerjakanController::class, 'index'])->name('data.dikerjakan');
+    Route::post('/requests-dikerjakan/{id}', [RequestUserController::class, 'moveToDikerjakan'])->name('requests.dikerjakan');
+
+    Route::get('/selesai/{id}', [DataDikerjakanController::class, 'show'])->name('request_dikerjakan');
+    Route::post('/pekerjaan-selesai/{id}', [DataDikerjakanController::class, 'moveToSelesai'])->name('pekerjaan-selesai');
+
+
+    Route::resource('DataDikerjakan', DataDikerjakanController::class);
+    Route::resource('PekerjaanSelesai', SelesaiController::class);
 require __DIR__.'/auth.php';

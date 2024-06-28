@@ -117,7 +117,7 @@
                               <div class="row mb-3">
                                 <label for="jumlah_produk" class="col-sm-10 col-form-label">No Hp</label>
                                 <div class="col-sm-20">
-                                  <input type="text" class="form-control" id="no_hp" name="no_hp" />
+                                  <input type="number" class="form-control" id="no_hp" name="no_hp" />
                                 </div>
                               </div>
                               <div class="row mb-3">
