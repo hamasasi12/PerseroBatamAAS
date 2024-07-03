@@ -108,4 +108,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('DataDikerjakan', DataDikerjakanController::class);
     Route::resource('PekerjaanSelesai', SelesaiController::class);
+
+    Route::get('/generate-pdf', [DataDikerjakanController::class, 'moveToSelesai'])->name('generate-pdf');
+
 require __DIR__.'/auth.php';

@@ -27,7 +27,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Request</h5>
-                        <a href="#" type="button" class="btn btn-rounded btn-danger mb-3">Print</a>
+                        <a href="{{ route('generate-pdf') }}" type="button" class="btn btn-rounded btn-danger mb-3">Print</a>
 
                         <!-- Table with stripped rows -->
                         <div class="table-responsive-lg">

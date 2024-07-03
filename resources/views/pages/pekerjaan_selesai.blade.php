@@ -26,7 +26,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Dikerjakan</h5>
+                        <h5 class="card-title">Table Selesai</h5>
                         <a href="#" type="button" class="btn btn-rounded btn-danger mb-3">Print</a>
 
                         <!-- Table with stripped rows -->
@@ -41,7 +41,7 @@
                                         <th>User</th>
                                         <th>File</th>
                                         {{-- <th>Ke Divisi</th> --}}
-                                        <th>Action</th>
+                                        {{-- <th>Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -86,14 +86,14 @@
                                         </button>
                                     </td>
                                     {{-- <td><a href="form-inventaris.html" type="button" class="btn btn-rounded btn-primary mb-3">Pemasaran</a></td> --}}
-                                    <td>
+                                    {{-- <td>
                                         <form action="{{ route('requests.dikerjakan', $item->id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-success mb-3">
                                                 <i class="bi bi-arrow-right" style="margin-right: 5px"></i>Kerjakan!
                                             </button>
                                         </form>
-                                    </td>
+                                    </td> --}}
                                 </tr>
 
                                 <!-- Detail Modal -->

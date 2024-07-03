@@ -19,7 +19,7 @@
                                 <div class="row mb-3">
                                     <label for="nomor_barang" class="col-sm-2 col-form-label">No Inventaris</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="nomor_inventaris" name="no_inventaris"/>
+                                        <input type="text" class="form-control" id="nomor_inventaris" name="no_inventaris"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -37,73 +37,73 @@
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">Merek</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="merek" name="merek" />
+                                        <input type="text" class="form-control" id="merek" name="merek" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">Proc</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="Proc" name="proc" />
+                                        <input type="text" class="form-control" id="Proc" name="proc" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">RAM</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="ram"/>
+                                        <input type="text" class="form-control" id="ram" name="ram"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">HDD</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="hdd"/>
+                                        <input type="text" class="form-control" id="ram" name="hdd"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">IP</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="ip"/>
+                                        <input type="text" class="form-control" id="ram" name="ip"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">User</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="user" />
+                                        <input type="text" class="form-control" id="ram" name="user" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">Unit</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="unit"/>
+                                        <input type="text" class="form-control" id="ram" name="unit"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">Lokasi</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="lokasi"/>
+                                        <input type="text" class="form-control" id="ram" name="lokasi"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="status" />
+                                        <input type="text" class="form-control" id="ram" name="status" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">Windows</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="windows"/>
+                                        <input type="text" class="form-control" id="ram" name="windows"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">Office</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="office"/>
+                                        <input type="text" class="form-control" id="ram" name="office"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="jumlah_produk" class="col-sm-2 col-form-label">Garansi</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ram" name="garansi"/>
+                                        <input type="text" class="form-control" id="ram" name="garansi"/>
                                     </div>
                                 </div>
                                 <div class="d-md-flex justify-content-md-end mt-3">
